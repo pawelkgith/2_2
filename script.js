@@ -37,6 +37,7 @@
     fetch(`https://jsonplaceholder.typicode.com/posts/${value}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         let html =
           "<table><tr><td>ID</td><td style='color: red'>Tytul</td><td style='color: green'>Tresc</td></tr>";
         html += `<tr><td>${data.id}</td><td style='color: red'>${data.title}</td><td style='color: green'>${data.body}</td></tr></table>`;
