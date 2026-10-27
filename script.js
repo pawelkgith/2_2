@@ -20,11 +20,11 @@
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((res) => res.json())
       .then((data) => {
-        let html = "<ol>";
+        let html = `<table><tr><td>ID</td><td style="color: red">Tytul</td><td style="color: green">Tresc</td></tr>`;
         data.forEach((row) => {
-          html += `<li>${row.title} - ${row.body}</li>`;
+          html += `<tr><td>${row.id}</td><td style="color: red">${row.title}</td><td style="color: green">${row.body}</td></tr>`;
         });
-        html += "</ol>";
+        html += "</table>";
         setTimeout(() => {
           answer.innerHTML = html;
         }, 500);
@@ -37,7 +37,10 @@
     fetch(`https://jsonplaceholder.typicode.com/posts/${value}`)
       .then((res) => res.json())
       .then((data) => {
-        answer.innerHTML = `<p>${data.id} - ${data.title} - ${data.body}</p>`;
+        let html =
+          "<table><tr><td>ID</td><td style='color: red'>Tytul</td><td style='color: green'>Tresc</td></tr>";
+        html += `<tr><td>${data.id}</td><td style='color: red'>${data.title}</td><td style='color: green'>${data.body}</td></tr></table>`;
+        answer.innerHTML = html;
       });
   });
 
